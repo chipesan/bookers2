@@ -1,4 +1,10 @@
 <h2>Sign up</h2>
+<%= link_to 'ログアウト',
+  destroy_user_session_path,
+  class: 'dropdown-item',
+  method: :delete
+%>
+
 
   <%= form_with model: @user, url: user_registration_path do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
