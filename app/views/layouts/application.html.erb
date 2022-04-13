@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+  <head><script src="https://kit.fontawesome.com/c946fd5e76.js" crossorigin="anonymous"></script>
     <title>Bookers2</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -35,23 +35,16 @@
       </div>
     </div>
   </nav>
-      <li>スペース</li>
-      <li>
-        <%= link_to "bookers", root_path %>
-      </li>
-    <% if user_signed_in? %>
-      <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "新規登録", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_user_session_path %>
-      </li>
-    <% end %>
   </header>
   <main><%= yield %></main>
+  <footer>
+    <div class="container mt-5">
+  	<div class="row">
+    	<div class="mx-auto">
+    		<p>CopyRight Infratop.inc</p>
+    	</div>
+    </div>
+  </div>
+  </footer>
   </body>
 </html>
