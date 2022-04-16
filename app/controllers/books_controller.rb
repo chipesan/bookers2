@@ -1,10 +1,12 @@
 class BooksController < ApplicationController
   def index
     @book = Book.new
+    @books = Book.all
     @user = current_user
   end
 
   def show
+    @book = Book.new
     @book = Book.find(params[:id])
   end
 
@@ -14,11 +16,11 @@ class BooksController < ApplicationController
 
   def create
     # １.&2. データを受け取り新規登録するためのインスタンス作成
-    book = Book.new(list_params)
-    # 3. データをデータベースに保存するためのsaveメソッド実行
+    book = Book.new(book_params)
+    book.user_id = current_user.id
     book.save
-    # 4. トップ画面へリダイレクト
-    redirect_to '/top'
+    logger.debug('aaaaa')
+    redirect_to book_path(book.id)
   end
 
   def update
