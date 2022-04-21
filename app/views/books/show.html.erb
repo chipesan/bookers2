@@ -19,17 +19,16 @@
 </thead>
 <tbody>
   <tr>
-    <td><%= link_to user_path(@book.user.id) do%><%= image_tag @book.user.get_profile_image(100,100) %><% end %></td>
+    <td><%= link_to user_path(@book.user.id) do%><%= image_tag @book.user.get_profile_image(100,100) %><br><%= @book.user.name %><% end %></td>
     <td>
       <span><%= link_to @book.title, book_path(@book.id) %></span>
     </td>
     <td>
       <span><%= @book.body %></span>
     </td>
-    <td><%= link_to "Edit",edit_book_path(@book.id), class: "btn btn-sm btn-success" %></td>
-    <td>
     <% if @book.user == current_user %>
-    <%= link_to "Destroy", book_path(@book), method: :delete, class: "btn btn-sm btn-danger" %>
+     <td><%= link_to "Edit",edit_book_path(@book.id), class: "btn btn-sm btn-success" %></td>
+    <td><%= link_to "Destroy", book_path(@book), method: :delete, class: "btn btn-sm btn-danger" %></td>
     <% end %>
     <td></td>
   </tr>
